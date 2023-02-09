@@ -1,0 +1,26 @@
+Pseudocódigo
+                           
+                        Valor Gasto em Cumbustivel
+1 Obter DistanciaTotal                                                                     Obter do Usuario
+2 Obter ValorCombustivel                                                                   Obter do Usuario
+3 Obter ConsumoKm                                                                          Obter do Usuario
+4 LitrosGastos = Dividir DistanciaTotal/(Consumo/Km)                                       Calculo
+5 ValorGasto   = Multiplicar (DistanciaTotal/(Consumo/Km)) x ValorCombustivel              Calculo
+
+
+
+Algoritimo 
+
+                       Calculadora de Custo de Viagem
+
+1 Obter a distância total percorrida na viagem em Km;
+2 Obter o consumo do carro em Km/l;
+3 Obter o preço do combustivel em R$;
+4 Calcular quantos litros foram gastos no total: Distancia dividido pelo consumo por Km
+5 Calcular o custo total do combustivel: Litros gastos vezes Valor do litro combustivel
+
+
+
+
+
+
