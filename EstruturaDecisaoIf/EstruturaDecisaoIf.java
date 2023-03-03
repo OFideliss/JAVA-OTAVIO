@@ -32,11 +32,11 @@ public class EstruturaDecisaoIf {
         System.out.println("Digite o preço do produto");
         double precoProduto = sc.nextDouble();
         double percentualDesconto = 0.0;
-        if (precoProduto < 100) {
+        if (precoProduto < 100) { // Se o preço do produto for menor que 100 reais  // If = preciso de uma condição
             percentualDesconto = 0.0;
-        } else if (precoProduto >= 100 && precoProduto < 200) {  //Situação Intermediaria
+        } else if (precoProduto >= 100 && precoProduto < 200) {  //Situação Intermediaria  // Senão faça 
             percentualDesconto = 5.0;
-        } else if(precoProduto>=200&&precoProduto<300){   //  Situação Intermediaria 
+        } else if(precoProduto>=200&&precoProduto<300){   //  Situação Intermediaria // Senão faça  // Else = não precisa de condição
             percentualDesconto = 10.0;
         } else {  // Senão
             percentualDesconto = 15.0;
