@@ -2,6 +2,8 @@ package ExercicioIfElse;
 
 import java.util.Scanner;
 
+import javax.print.attribute.standard.Media;
+
 public class Exercicio {
     Scanner sc = new Scanner(System.in);
 
@@ -71,15 +73,16 @@ public class Exercicio {
             System.out.println("Números em ordem crescente:" + Valor2 + ";" + Valor1 + ";" + Valor3);
         } else if (Valor2 < Valor1 && Valor2 < Valor3 && Valor3 < Valor1) {
             System.out.println("Números em ordem crescente:" + Valor2 + ";" + Valor3 + ";" + Valor1);
-    } else if (Valor3 < Valor1 && Valor3 < Valor2 && Valor1 < Valor2) {
-        System.out.println("Números em ordem crescente:" + Valor3 + ";" + Valor1 + ";" + Valor2);
-    } else if (Valor3 < Valor1 && Valor3 < Valor2 && Valor2 < Valor1) {
-        System.out.println("Números em ordem crescente:" + Valor3 + ";" + Valor2 + ";" + Valor1);
-}
+        } else if (Valor3 < Valor1 && Valor3 < Valor2 && Valor1 < Valor2) {
+            System.out.println("Números em ordem crescente:" + Valor3 + ";" + Valor1 + ";" + Valor2);
+        } else if (Valor3 < Valor1 && Valor3 < Valor2 && Valor2 < Valor1) {
+            System.out.println("Números em ordem crescente:" + Valor3 + ";" + Valor2 + ";" + Valor1);
+        }
     }
+
     public void Exercicio6() {
-        System.out.println("Digite a sua altura em cm:");
-        int Altura = sc.nextInt();
+        System.out.println("Digite a sua altura em m,cm:");
+        double Altura = sc.nextDouble();
         System.out.println("Digite 1 para sexo feminino ou 2 para masculino:");
         int Sexo = sc.nextInt();
         double PesoIdeal;
@@ -88,6 +91,18 @@ public class Exercicio {
         } else {
             PesoIdeal = (72.7 * Altura) - 58;
         }
-        System.out.println("O seu peso ideal é de:" + PesoIdeal);
+        System.out.println("O seu peso ideal é de:" + PesoIdeal + "Kg");
     }
+
+    public void Exericio7() {
+        System.out.println("Informe a Nota 1 do Aluno");
+        int Nota1 = sc.nextInt();
+        System.out.println("Informe a Nota 2 do Aluno");
+        int Nota2 = sc.nextInt();
+        int NotaAprovado = 50;
+        double MediaAluno = (Nota1 + Nota2) / 2;
+        System.out.println("A média do Aluno foi de: " + MediaAluno);
+        Sytem
+    }  
+
 }
