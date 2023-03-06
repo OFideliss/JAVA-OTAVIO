@@ -126,7 +126,11 @@ public class Exercicio {
         public void Exercicio8() {
             System.out.println("Digite um número do conjunto dos números Inteiros:");
             int NumeroInt = sc.nextInt();
-            If (NumeroInt/2 == ) 
+            if (NumeroInt%2 == 0) {
+                System.out.println("O número que você digitou é PAR");
+            } else {
+                System.out.println("O número que você digitou é IMPAR");
+            }
         }
 
         public void Exercicio9() {
@@ -143,7 +147,6 @@ public class Exercicio {
         }
         public void Exercicio10() {
             System.out.println("Digite uma letra do alfabeto:");
-            Letra
             
         }
 }

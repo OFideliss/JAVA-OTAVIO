@@ -10,8 +10,8 @@ public class App {
         //objeto1.Exercicio5();
         //objeto1.Exercicio6();
         //objeto1.Exericio7();
-        //objeto1.Exercicio8();
-        objeto1.Exercicio9();
+        objeto1.Exercicio8();
+        //objeto1.Exercicio9();
     }
 
 }
