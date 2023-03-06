@@ -94,7 +94,7 @@ public class Exercicio {
         System.out.println("O seu peso ideal é de:" + PesoIdeal + "Kg");
     }
 
-    public void Exericio7() {
+    public void Exericio7() { // Media Notas
         System.out.println("Informe a Nota 1 do Aluno");
         int Nota1 = sc.nextInt();
         System.out.println("Informe a Nota 2 do Aluno");
@@ -102,7 +102,48 @@ public class Exercicio {
         int NotaAprovado = 50;
         double MediaAluno = (Nota1 + Nota2) / 2;
         System.out.println("A média do Aluno foi de: " + MediaAluno);
-        Sytem
-    }  
+        if (MediaAluno >= NotaAprovado) {
+            System.out.println("O Aluno foi aprovado por nota");
+        } else {
+            System.out.println("O Aluno não foi aprovado por nota");
+        }
+        System.out.println("Informe a frequênica do Aluno");
+        int FrequenciaAluno = sc.nextInt();
+        if (FrequenciaAluno >= 75) {
+            System.out.println("O Aluno foi Aprovador por Frequencia");
+        } else {
+            System.out.println("O Aluno não foi aprovado por frequência");
+        }
+        if (MediaAluno >= NotaAprovado && FrequenciaAluno >= 75) {
+            System.out.print("O Aluno foi aprovado no GERAL");
+        } else {
+            System.out.println("O Aluno NÃO foi aprovado no GERAL");
+        }
+    }
 
+        // LISTA DE EXERCICIOS 2 //
+
+        public void Exercicio8() {
+            System.out.println("Digite um número do conjunto dos números Inteiros:");
+            int NumeroInt = sc.nextInt();
+            If (NumeroInt/2 == ) 
+        }
+
+        public void Exercicio9() {
+            
+        System.out.println("Digite a sua Nota:");
+        int Nota = sc.nextInt();
+        if (Nota >= 7) {
+            System.out.println("Meus parabens, você foi aprovado!!");
+        } else if (Nota == 5 || Nota == 6 ) {
+            System.out.println("Recuperação");
+        } else {
+            System.out.println("Reprovado :(");
+        }
+        }
+        public void Exercicio10() {
+            System.out.println("Digite uma letra do alfabeto:");
+            Letra
+            
+        }
 }
