@@ -49,12 +49,13 @@ public class Exercicio {
         System.out.println("Digite a quantidade de maças que seram compradas:");
         int QuantidadeCompra = sc.nextInt();
         double ValorDuzia;
+        double Precocompra;
         if (QuantidadeCompra < 12) {
             ValorDuzia = 0.30;
         } else {
             ValorDuzia = 0.25;
         }
-        double Precocompra = QuantidadeCompra * ValorDuzia;
+        Precocompra = QuantidadeCompra * ValorDuzia;
         System.out.println("A sua compra irá custar R$:" + Precocompra);
     }
 
@@ -121,32 +122,79 @@ public class Exercicio {
         }
     }
 
-        // LISTA DE EXERCICIOS 2 //
+    // LISTA DE EXERCICIOS 2 //
 
-        public void Exercicio8() {
-            System.out.println("Digite um número do conjunto dos números Inteiros:");
-            int NumeroInt = sc.nextInt();
-            if (NumeroInt%2 == 0) {
-                System.out.println("O número que você digitou é PAR");
-            } else {
-                System.out.println("O número que você digitou é IMPAR");
-            }
+    public void Exercicio8() { // LISTA 2 EXERCICIO 1
+        System.out.println("Digite um número do conjunto dos números Inteiros:");
+        int NumeroInt = sc.nextInt();
+        if (NumeroInt % 2 == 0) {
+            System.out.println("O número que você digitou é PAR");
+        } else {
+            System.out.println("O número que você digitou é IMPAR");
         }
+    }
 
-        public void Exercicio9() {
-            
-        System.out.println("Digite a sua Nota:");
+    public void Exercicio9() {
+
+        System.out.println("Digite a sua Nota:"); // LISTA 2 EXERCICIO 2
         int Nota = sc.nextInt();
         if (Nota >= 7) {
             System.out.println("Meus parabens, você foi aprovado!!");
-        } else if (Nota == 5 || Nota == 6 ) {
+        } else if (Nota == 5 || Nota == 6) {
             System.out.println("Recuperação");
         } else {
             System.out.println("Reprovado :(");
         }
+    }
+
+    public void Exercicio10() { // LISTA 2 EXERCICIO 3
+        System.out.println("Digite uma letra do alfabeto:");
+        String LetraDigitada = sc.next();
+        if (LetraDigitada .equals("A" ) ) {
+            System.out.println("A letra digitada é uma VOGAL");
+        } else if (LetraDigitada .equals("a")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        } else if (LetraDigitada .equals("E")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("e")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("I")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("i")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("O")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("o")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("U")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        }else if (LetraDigitada .equals("u")) {
+            System.out.println("A letra digitada é uma VOGAL");
+        } else {
+            System.out.println("A letra digitada é uma CONSOANTE");
         }
-        public void Exercicio10() {
-            System.out.println("Digite uma letra do alfabeto:");
-            
+    }
+    public void Exercicio11() {  // LISTA DE EXERCICIO 2 EXERCICIO 4 SALÁRIO
+        System.out.println("Digite o seu Salário:");
+        double SalarioDigitado = sc.nextDouble();
+        double SalarioAumentado;
+        double DiferencaSalarios;
+        if (SalarioDigitado <= 1200) {
+            SalarioAumentado = SalarioDigitado*1.2;
+            DiferencaSalarios = SalarioAumentado-SalarioDigitado;
+            System.out.println("O seu sálario era de R$"+SalarioDigitado+". E Agora é de R$"+SalarioAumentado+". Seu aumento percentual foi de 20% que corresponde a um valor aumentado de R$"+DiferencaSalarios);
+        } else if (SalarioDigitado > 1200 && SalarioDigitado <= 1700) {
+            SalarioAumentado = SalarioDigitado*1.15;
+            DiferencaSalarios = SalarioAumentado-SalarioDigitado;
+            System.out.println("O seu sálario era de R$"+SalarioDigitado+". E Agora é de R$"+SalarioAumentado+". Seu aumento percentual foi de 15% que corresponde a um valor aumentado de R$"+DiferencaSalarios);
+        } else if (SalarioDigitado > 1700 && SalarioDigitado <= 2500) {
+            SalarioAumentado = SalarioDigitado*1.1;
+            DiferencaSalarios = SalarioAumentado-SalarioDigitado;
+            System.out.println("O seu sálario era de R$"+SalarioDigitado+". E Agora é de R$"+SalarioAumentado+". Seu aumento percentual foi de 10% que corresponde a um valor aumentado de R$"+DiferencaSalarios);
+        } else {
+            SalarioAumentado = SalarioDigitado*1.05;
+            DiferencaSalarios = SalarioAumentado-SalarioDigitado;
+            System.out.println("O seu sálario era de R$"+SalarioDigitado+". E Agora é de R$"+SalarioAumentado+". Seu aumento percentual foi de 5% que corresponde a um valor aumentado de R$"+DiferencaSalarios);
         }
+    }
 }
