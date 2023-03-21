@@ -2,8 +2,6 @@ package EstruturaSwitchCase;  // Arquivo de Classe
 
 import java.util.Scanner;
 
-import javax.print.attribute.standard.Media;
-
 public class SwitchCase {    //Classe 
     Scanner sc = new Scanner(System.in); 
 

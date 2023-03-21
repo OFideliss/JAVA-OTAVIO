@@ -2,8 +2,6 @@ package ExercicioIfElse;
 
 import java.util.Scanner;
 
-import javax.print.attribute.standard.Media;
-
 public class Exercicio {
     Scanner sc = new Scanner(System.in);
 

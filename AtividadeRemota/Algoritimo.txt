@@ -1,0 +1,46 @@
+Exercicio2:
+Pedir quantidade de horas trabalhadas (QtnTrabalhado) 
+Pedir o valor do sálario/h  (SalarioPorH)
+
+Se (QtnTrabalhado <= 200), Então 
+
+SalarioFinal = QtnTrabalhado x SalarioPorH
+
+Sysu
+
+==================================
+
+Se não, Então
+
+Hextra = QtnTrabalhado - 200
+
+SalarioHextra =  Hextra x SalarioPorH x 1,5
+
+SalarioFinal =  ( 200 x SalarioPorH) + SalarioHextra
+
+Sysu
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Exercicio3:
+
+Pedir o Salário fixo (SalarioFixo)
+Pedir o Valor das Vendas (ValorVendas)
+
+Se ( ValorVendas >= 2500), Então 
+
+SalarioFinal = SalarioFixo + (ValorVendas x 0,03) 
+
+Sysu 
+
+============================================
+
+Se não, Então 
+
+Parte1Salario = (2500 x 0,03)
+Diferenca =  (ValorVendas - 2500)
+Parte2Salario =  (Diferenca x 0,05)
+
+SalarioFinal = (SalarioFixo + Parte1Salario + Parte2Salario)
+
+Sysu
