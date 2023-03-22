@@ -106,7 +106,7 @@ public class Exercicio {
         String Combustivel = sc.nextLine();
         double Total;
 
-        if (Combustivel == "A" && QtnLitros <= 20) {
+        if (Combustivel.equals("A") && QtnLitros <= 20) {
             Total = QtnLitros * 3.90 * 0.97;
             System.out.println("O Valor a ser pago é de R$" + Total);
         } else if (Combustivel == "A" && QtnLitros > 20) {
