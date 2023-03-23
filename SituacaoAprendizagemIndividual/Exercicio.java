@@ -9,23 +9,28 @@ public class Exercicio {
         System.out.println("Digite o primeiro número");
         double numero1 = sc.nextDouble();
         System.out
-                .println("Digite a operação que deseja realizar: 1.Adição - 2.Subtração - 3.Multiplicação - 4.Divisão");
+                .println(
+                        "Digite o número de acordo com a operação que deseja realizar: 1.Adição - 2.Subtração - 3.Multiplicação - 4.Divisão");
         double operacao = sc.nextDouble();
         System.out.println("Digite o segundo número");
         double numero2 = sc.nextDouble();
         double resultado;
         if (operacao == 1) {
             resultado = (numero1 + numero2);
-            System.out.println("O resultado da operação de Adição é de: " + resultado);
+            System.out.println("O resultado da operação de Adição entre os números " + numero1 + " e o número "
+                    + numero2 + " é de " + resultado);
         } else if (operacao == 2) {
             resultado = (numero1 - numero2);
-            System.out.println("O resultado da operação de Subtração é de: " + resultado);
+            System.out.println("O resultado da operação de Subtração do número " + numero1 + " pelo número " + numero2
+                    + " é de: " + resultado);
         } else if (operacao == 3) {
             resultado = (numero1 * numero2);
-            System.out.println("O resultado da operação de Multiplicação é de: " + resultado);
+            System.out.println("O resultado da operação de Multiplicação entre os números " + numero1 + " e o número "
+                    + numero2 + " é de " + resultado);
         } else {
             resultado = (numero1 / numero2);
-            System.out.println("O resultado da operação de Divisão é de: " + resultado);
+            System.out.println("O resultado da operação de Divisão do número " + numero1 + " pelo número " + numero2
+                    + " é de: " + resultado);
         }
 
     }
