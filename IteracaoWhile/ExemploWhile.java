@@ -18,7 +18,7 @@ public class ExemploWhile {
 
     public void exemplo2() { // jogo de adivinhação
         // Scanner scanner = new Scanner(System.in);
-        Random rd = new Random();
+        Random rd = new Random();  // Função para ecolher um número aleatorio
         int numeroAleatorio = rd.nextInt(10);
         boolean tentarNovamente = true;
         System.out.println("Aperte a tecla CTRL+C, a qualquer momento para parar.");
@@ -58,7 +58,7 @@ public class ExemploWhile {
         int vetor[] = new int[5];
         int i = 0;
         while (i < 5) {
-            System.out.println("Digite o valor para o vetor["+i+"]"); ;
+            System.out.println("Digite o valor para o vetor["+i+"]"); ; // o vetor "i" corresponde ao indice 0, pois a variavel "i" foi declarada com valor 0
             vetor[i] = sc.nextInt();
             i++;
         }
