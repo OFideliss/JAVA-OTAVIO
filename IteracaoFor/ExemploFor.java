@@ -113,19 +113,42 @@ public class ExemploFor {
         double vetorAltura[] = new double[5];
 
         for (int i = 0; i < vetorIdade.length; i++) {
-            System.out.println("Digite a idade da pessoa " + (i+1));
+            System.out.println("Digite a idade da pessoa " + (i + 1));
             vetorIdade[i] = sc.nextInt();
         }
 
         for (int i = 0; i < vetorAltura.length; i++) {
-            System.out.println("Digite a altura da pessoa " + (i+1));
+            System.out.println("Digite a altura da pessoa " + (i + 1));
             vetorAltura[i] = sc.nextDouble();
         }
 
         for (int i = 4; i >= 0; i--) {
-            System.out.println("A idade da pessoa "+(i+1)+" é " +vetorIdade[i]);
-            System.out.println("A altura da pessoa "+(i+1)+" é " +vetorAltura[i]);
+            System.out.println("A idade da pessoa " + (i + 1) + " é " + vetorIdade[i]);
+            System.out.println("A altura da pessoa " + (i + 1) + " é " + vetorAltura[i]);
         }
 
     }
+
+    public void exemplo8() {
+        // ler um vetor 10 numeros inteiros, calcular a soma dos quadradados dos
+        // elementos do vetor.
+        int vetorInt[] = new int[10];
+        int vetorQuadrado[] = new int[10];
+        int soma = 0;
+        for (int i = 0; i < vetorInt.length; i++) {
+            System.out.println("Digite o " + (i + 1) + "° numero inteiro:");
+            vetorInt[i] = sc.nextInt();
+        }
+        for (int i = 0; i < vetorQuadrado.length; i++) {
+            vetorQuadrado[i] = vetorInt[i] * vetorInt[i];
+            soma += vetorQuadrado[i];
+        }
+
+        System.out.println("O resultado da soma dos quadrados dos numeros digitados é: " + soma);
+    }
+
+    public void exemplo9() {
+
+    }
+
 }

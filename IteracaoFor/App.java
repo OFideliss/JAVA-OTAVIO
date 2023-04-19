@@ -9,7 +9,8 @@ public class App {
         // objeto1.exemplo4();
         // objeto1.exemplo5();
         // objeto1.exemplo6();
-        objeto1.exemplo7();
+        // objeto1.exemplo7();
+        objeto1.exemplo8();
 
     }
 }
