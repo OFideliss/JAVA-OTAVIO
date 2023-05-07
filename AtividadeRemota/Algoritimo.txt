@@ -44,3 +44,16 @@ Parte2Salario =  (Diferenca x 0,05)
 SalarioFinal = (SalarioFixo + Parte1Salario + Parte2Salario)
 
 Sysu
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Exercicio5:
+
+A
+B
+C
+
+Se a> b && a > c 
+
+Então
+
