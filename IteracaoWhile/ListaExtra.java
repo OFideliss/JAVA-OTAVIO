@@ -3,6 +3,8 @@ package IteracaoWhile;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.SizeSequence;
+
 import LacoRepeticaoWhile.While;
 
 public class ListaExtra {
@@ -191,10 +193,87 @@ public class ListaExtra {
         }
         int produto = numero;
         while (i <= 10) {
-            produto = numero*i;
+            produto = numero * i;
             System.out.println(numero + " x " + i + " = " + produto);
             i += 1;
         }
+    }
+
+    public void exercicio9() {
+
+        int base;
+        int expoente;
+        int i = 1;
+        System.out.println("Digite o número que ficara na base");
+        base = sc.nextInt();
+        System.out.println("Digite o número que ficara no expoente");
+        expoente = sc.nextInt();
+
+        int resultado = base;
+        while (i < expoente) {
+            resultado *= base;
+            i += 1;
+        }
+
+        System.out.println("O resultado da operação de potência é: " + resultado);
+
+    }
+
+    public void exercicio10() {
+        int enesimo;
+        int ultimoTermo = 1;
+        int penultimoTermo = 1;
+        int i;
+        int primeroTermo;
+        int resultado = 0;
+
+        System.out.println("O primeiro termo da sequencia de Fibonacci que deseja imprimir é (0 ou 1)?");
+        primeroTermo = sc.nextInt();
+
+        System.out.println("Digite até qual termo da sequência você deseja imprimir:");
+        enesimo = sc.nextInt();
+
+        if (primeroTermo == 0) {
+            i = 2;
+            System.out.println("Os termos da sequência ate a " + enesimo + "° posição são os seguintes:");
+            System.out.println("0");
+            System.out.println("1");
+        } else {
+            i = 1;
+            System.out.println("Os termos da sequência ate a " + enesimo + "° posição são os seguintes:");
+            System.out.println("1");
+        }
+
+        while (i < enesimo) {
+            resultado = ultimoTermo + penultimoTermo;
+            ultimoTermo = penultimoTermo;
+            System.out.println(ultimoTermo);
+            penultimoTermo = resultado;
+            i++;
+        }
+
+        //System.out.println("O " + enesimo + "° termo da sequencia é: " + resultado);
+
+    }
+
+    public void exercicio11() {
+        
+int fatorial;
+int resultado=0;
+int i=1;
+int quantidadeRepeticao;
+System.out.println("Digite o número que deseja realizar a operação de fatorial:");
+fatorial = sc.nextInt();
+quantidadeRepeticao = fatorial;
+resultado =fatorial;
+while (i<quantidadeRepeticao) {
+    resultado *= fatorial-1;
+    i++;
+    fatorial--;
+}
+
+System.out.println("O resultado é:"+resultado);
+
     }
 
 }
