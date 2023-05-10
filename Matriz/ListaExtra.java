@@ -21,44 +21,55 @@ public class ListaExtra {
 
     public void exercicio2() {
         int matriz[][] = new int[4][4];
-        int posicaoLinha=0;
-        int posicaoColuna=0;
-        int maiorNumero=0;
+        int posicaoLinha = 0;
+        int posicaoColuna = 0;
+        int maiorNumero = 0;
         System.out.println("Matriz:");
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 matriz[i][j] = rd.nextInt(100);
-                if (matriz[i][j]>maiorNumero) {
+                if (matriz[i][j] > maiorNumero) {
                     maiorNumero = matriz[i][j];
-                    posicaoLinha = i+1;
-                    posicaoColuna= j+1;
+                    posicaoLinha = i + 1;
+                    posicaoColuna = j + 1;
                 }
                 System.out.print(matriz[i][j] + " ");
             }
             System.out.println(" | ");
         }
-        System.out.println("Maior Numero: "+maiorNumero);
-        System.out.println("Este número esta na linha "+posicaoLinha+" e na coluna "+posicaoColuna);
+        System.out.println("Maior Numero: " + maiorNumero);
+        System.out.println("Este número esta na linha " + posicaoLinha + " e na coluna " + posicaoColuna);
 
     }
 
     public void exercicio3() {
         int matriz[][] = new int[5][5];
-
+        System.out.println("Matriz:");
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j]= rd.nextInt(5);
+                matriz[i][j] = rd.nextInt(5);
+                System.out.print(matriz[i][j] + " ");
             }
+            System.out.println(" | ");
         }
         System.out.println("Qual número você deseja localizar na matriz?");
-        int numeroX= sc.nextInt();
-
+        int numeroX = sc.nextInt();
+        //boolean naoEncontrado=false;
+        boolean encontrado=false;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                if(numeroX==matriz[i][j]) {
-                    System.out.println("O número que você digitou esta na posição");
-                }
+                if (numeroX == matriz[i][j]) {
+                    encontrado=true;
+                    System.out.println("localização: " + i + "x" + j);
+                    
+                } //else {
+                   // naoEncontrado=true;
+                //}
             }
         }
+        if (encontrado==false) {
+            System.out.println("Não encontrado");
+        }
+
     }
 }
