@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import javax.swing.SizeSequence;
 
-import LacoRepeticaoWhile.While;
 
 public class ListaExtra {
     Scanner sc = new Scanner(System.in);
@@ -252,28 +251,41 @@ public class ListaExtra {
             i++;
         }
 
-        //System.out.println("O " + enesimo + "° termo da sequencia é: " + resultado);
+        // System.out.println("O " + enesimo + "° termo da sequencia é: " + resultado);
 
     }
 
     public void exercicio11() {
-        
-int fatorial;
-int resultado=0;
-int i=1;
-int quantidadeRepeticao;
-System.out.println("Digite o número que deseja realizar a operação de fatorial:");
-fatorial = sc.nextInt();
-quantidadeRepeticao = fatorial;
-resultado =fatorial;
-while (i<quantidadeRepeticao) {
-    resultado *= fatorial-1;
-    i++;
-    fatorial--;
-}
 
-System.out.println("O resultado é:"+resultado);
+        int fatorial;
+        int resultado = 0;
+        int i = 1;
+        int quantidadeRepeticao;
+        System.out.println("Digite o número que deseja realizar a operação de fatorial:");
+        fatorial = sc.nextInt();
+        quantidadeRepeticao = fatorial;
+        resultado = fatorial;
+        while (i < quantidadeRepeticao) {
+            resultado *= fatorial - 1;
+            i++;
+            fatorial--;
+        }
 
+        System.out.println("O resultado é:" + resultado);
+
+    }
+
+    public void exercicio12() {
+
+        System.out.println("Digite um número inteiro:");
+        int numero = sc.nextInt();
+        int i = 0;
+        double resultado;
+        double vetorA[] = new double[numero];
+        while (i >= numero) {
+            vetorA[i] = numero%i;
+            i++;
+        }
     }
 
 }
