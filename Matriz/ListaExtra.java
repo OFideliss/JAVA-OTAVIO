@@ -181,7 +181,7 @@ public class ListaExtra {
                 }
                 // atribuindo o resultado das somas na linha 1 e coluna 1 da matrizC
                 matrizC[i][j] = somatoria;
-                // imprimir o número da possição
+                // imprimir o número da posição
                 System.out.print(matrizC[i][j] + " ");
                 // zerando a somatoria para poder armazenar o numero correto da proxima posição
                 // calculada

@@ -278,16 +278,15 @@ public class ListaExtra {
 
         System.out.println("Digite um número inteiro:");
         int numero = sc.nextInt();
-        double contador=0;
-       // double vetorA[] = new double[numero];
+        int contador = 0;
 
         for (int i = 1; i <= numero; i++) {
-            if (numero%i ==0) {
+            if (numero % i == 0) {
                 contador++;
             }
         }
 
-        if(contador>2) {
+        if (contador > 2) {
             System.out.println("O número não é primo");
         } else {
             System.out.println("O número é primo");
