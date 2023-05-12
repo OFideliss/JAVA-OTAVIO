@@ -12,8 +12,8 @@ public class App {
         //obj1.exercicio2();
         //obj1.exercicio3();
         //obj1.exercicio4();
-         obj1.exercicio5();
-        // obj1.exercicio6();
+         //obj1.exercicio5();
+         obj1.exercicio6();
 
     }
 

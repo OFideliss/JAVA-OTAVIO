@@ -49,7 +49,7 @@ public class ListaExtra {
         System.out.println("Matriz:");
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = rd.nextInt(50);
+                matriz[i][j] = rd.nextInt(5);
                 System.out.print(matriz[i][j] + " ");
             }
             System.out.println(" | ");
@@ -102,8 +102,8 @@ public class ListaExtra {
         // variavel para armazenar a matricula com a maior nota final
         int matriculaMaiorNota = 0;
 
-        // variavel para descobrir a media final 
-        int mediaNotasFinais = 0;
+        // variavel para descobrir a media final
+        double mediaNotasFinais = 0;
 
         // Pedindo as informações de cada aluno para o usuario e calculando a nota final
         // de cada aluno e armazenando-as
@@ -132,15 +132,64 @@ public class ListaExtra {
                 }
             }
             // soma todas as notas finais de cada aluno e acumula na variavel abaixo
-            mediaNotasFinais+= notaFinal[i];
+            mediaNotasFinais += notaFinal[i];
         }
         // imprimir a matricula do auluno de maior nota
-        System.out.println("O aluno com a maior nota tem amatricula: " + matriculaMaiorNota);
+        System.out.println("O aluno com a maior nota tem a matricula: " + matriculaMaiorNota);
 
         // calcula a media aritmetica das notas finais
-        mediaNotasFinais/= matriz.length;
-        
+        mediaNotasFinais /= matriz.length;
+
         // imprimir a media aritmetica das notas finais
-        System.out.println("A média aritmética das notas finais é: "+mediaNotasFinais);
+        System.out.println("A média aritmética das notas finais é: " + mediaNotasFinais);
     }
+
+    public void exercicio6() {
+
+        // criando as duas primerias matrizes
+        int matrizA[][] = new int[3][3];
+        int matrizB[][] = new int[3][3];
+        int matrizC[][] = new int[3][3];
+        // criando variavel para armazenar e acumular a multiplicação das matrizes
+        int somatoria = 0;
+
+        // pedindo para usuario os valores de cada elemento da matrizA e armazenar
+        for (int i = 0; i < matrizA.length; i++) {
+            for (int j = 0; j < matrizA[0].length; j++) {
+                System.out.print("Elemento " + (i + 1) + "x" + (j + 1) + " da Matriz A:");
+                matrizA[i][j] = sc.nextInt();
+            }
+        }
+
+        // pedindo para usuario os valores de cada elemento da matrizB e armazenar
+        for (int i = 0; i < matrizB.length; i++) {
+            for (int j = 0; j < matrizB[0].length; j++) {
+                System.out.print("Elemento " + (i + 1) + "x" + (j + 1) + " da Matriz B:");
+                matrizB[i][j] = sc.nextInt();
+            }
+        }
+
+        // criando a matrizC resultante da multiplicação da matrizA pela matrizB
+       System.out.println("Matriz C resultante:");
+        for (int i = 0; i < matrizC.length; i++) {
+            for (int j = 0; j < matrizC[0].length; j++) {
+                System.out.print(" | ");
+                // criando um novo laço for para realizar a multiplicação dos valores e acumular
+                // na variavel somatoria
+                for (int k = 0; k < matrizC.length; k++) {
+                    somatoria += matrizA[i][k] * matrizB[k][j];
+                }
+                // atribuindo o resultado das somas na linha 1 e coluna 1 da matrizC
+                matrizC[i][j] = somatoria;
+                // imprimir o número da possição
+                System.out.print(matrizC[i][j] + " ");
+                // zerando a somatoria para poder armazenar o numero correto da proxima posição
+                // calculada
+                somatoria = 0;
+            }
+            System.out.println(" | ");
+        }
+
+    }
+
 }
