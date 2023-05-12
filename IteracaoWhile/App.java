@@ -14,7 +14,7 @@ public class App {
          //objeto1.exercicio8();   
          //objeto1.exercicio9();
          //objeto1.exercicio10();
-         objeto1.exercicio11();   
-         //objeto1.exercicio12();
+         //objeto1.exercicio11();   
+         objeto1.exercicio12();
         }
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import javax.swing.SizeSequence;
 
-
 public class ListaExtra {
     Scanner sc = new Scanner(System.in);
 
@@ -279,12 +278,19 @@ public class ListaExtra {
 
         System.out.println("Digite um número inteiro:");
         int numero = sc.nextInt();
-        int i = 0;
-        double resultado;
-        double vetorA[] = new double[numero];
-        while (i >= numero) {
-            vetorA[i] = numero%i;
-            i++;
+        double contador=0;
+       // double vetorA[] = new double[numero];
+
+        for (int i = 1; i <= numero; i++) {
+            if (numero%i ==0) {
+                contador++;
+            }
+        }
+
+        if(contador>2) {
+            System.out.println("O número não é primo");
+        } else {
+            System.out.println("O número é primo");
         }
     }
 
