@@ -3,8 +3,6 @@ package Matriz;
 import java.util.Random;
 import java.util.Scanner;
 
-import org.omg.PortableServer.POAPackage.WrongPolicyHelper;
-
 public class ListaExtra {
     Scanner sc = new Scanner(System.in);
     Random rd = new Random();
