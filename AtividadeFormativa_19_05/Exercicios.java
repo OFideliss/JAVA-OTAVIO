@@ -29,7 +29,7 @@ public class Exercicios {
         System.out.println("Matriz:");
         for (int i = 0; i < matrizUsuario.length; i++) {
             System.out.print("| ");
-            for (int j = 0; j < matrizUsuario.length; j++) {
+            for (int j = 0; j < matrizUsuario[0].length; j++) {
                 System.out.print(matrizUsuario[i][j] + "  ");
             }
             System.out.println("| ");
@@ -91,7 +91,7 @@ public class Exercicios {
 
     public void Exercicio3() {
 
-        int aleatorio = rd.nextInt(5, 10);
+        int aleatorio = rd.nextInt(100, 1000);
         int vetorA[] = new int[aleatorio];
 
         // Crinando vetor com números aleatorios de 1 a 100
@@ -144,9 +144,5 @@ public class Exercicios {
 
         System.out.println("Existem " + contPares + " números PARES em posições IMPARES do vetor.");
         System.out.println("Existem " + contImpares + " números IMPARES em posições PARES do vetor.");
-
-        for (int i = 0; i < vetorA.length; i++) {
-            System.out.print(vetorA[i]+", ");
-        }
     }
 }
