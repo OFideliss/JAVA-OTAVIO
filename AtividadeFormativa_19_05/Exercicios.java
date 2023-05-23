@@ -58,9 +58,9 @@ public class Exercicios {
 
     public void Exercicio2() {
         // criando numero aleatorio
-        int nAleatorio = (int) (Math.random() * 1000) + 1;
+        int nAleatorio = (int) (Math.random() * 10) + 1;
         // criando contador
-        int contador = 0;
+        int contador = 1;
         // valiavel booleana para saber se acertou numero ou não
         boolean tentarNovamente = true;
 
@@ -78,25 +78,25 @@ public class Exercicios {
             // retornando ao usuario se valor é maior ou menor
             if (nUsuario > nAleatorio) {
                 System.out.println("Errrou. O número digitado é maior do que o número aleatorio");
-                contador++;
+
             } else if (nUsuario < nAleatorio) {
                 System.out.println("Errrou. O número digitado é menor do que o número aleatorio");
-                contador++;
-            } else {
-                System.out.println("Parabens, você acertou e só precisou de " + (contador + 1) + " tentativas");
-            }
 
+            } else {
+                System.out.println("Parabens, você acertou e só precisou de " + (contador) + " tentativas");
+            }
+            contador++;
         }
     }
 
     public void Exercicio3() {
-
+        // Crinando vetor de tamanho aleatorio entre 100 e 1000
         int aleatorio = rd.nextInt(100, 1000);
         int vetorA[] = new int[aleatorio];
 
         // Crinando vetor com números aleatorios de 1 a 100
         for (int i = 0; i < vetorA.length; i++) {
-            vetorA[i] = rd.nextInt(100)+1;
+            vetorA[i] = rd.nextInt(100) + 1;
         }
 
         // Exibindo os numeros pares do vetor
@@ -126,14 +126,14 @@ public class Exercicios {
         int contImpares = 0;
 
         // contando os numeros pares nas posições impares do vetor
-        for (int i = 0; i < vetorA.length; i+=2) {
+        for (int i = 0; i < vetorA.length; i += 2) {
             if (vetorA[i] % 2 == 0) {
                 contPares++;
             }
         }
 
-         // contando os numeros impares nas posições pares do vetor
-        for (int i = 1; i < vetorA.length; i+=2) {
+        // contando os numeros impares nas posições pares do vetor
+        for (int i = 1; i < vetorA.length; i += 2) {
             if (vetorA[i] % 2 != 0) {
                 contImpares++;
             }
