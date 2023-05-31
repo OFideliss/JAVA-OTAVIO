@@ -1,10 +1,10 @@
 package POOInterface;
 
-public class Quadrado implements FigurasGeometricas { // ma interface é usado o "implements" ao inves de "extend" das
+public class Quadrado implements FigurasGeometricas { // na interface é usado o "implements" ao inves de "extend" das
                                                       // classes
     int lado; // declarando variavel
 
-    // construtor
+    // construtor.  Precisa ter o mesmo nome da classe
     public Quadrado(int lado) {
         this.lado = lado;
     }
