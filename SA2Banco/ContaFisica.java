@@ -57,7 +57,8 @@ public class ContaFisica extends Conta {
 
     public void emprestimoPF() {// Pedir emprestimo
         idade = 2023 - anoNascimento;
-        if (idade >= 20 && saldo >= 500) {
+        if (idade >= 20) {
+
             if (saldo >= 500 & saldo <= 5000) {
                 valorEmprestimo = saldo * 1.5;
                 JOptionPane.showMessageDialog(null, "Valor disponivel para empréstimo: R$" + valorEmprestimo + ".");
@@ -70,10 +71,13 @@ public class ContaFisica extends Conta {
             } else if (saldo > 250000) {
                 valorEmprestimo = saldo * 5;
                 JOptionPane.showMessageDialog(null, "Valor disponivel para empréstimo: R$" + valorEmprestimo + ".");
+            } else if (saldo < 500) {
+                JOptionPane.showMessageDialog(null,
+                        "Usuário não possui os requisitos necessários para um empréstimo. Saldo mínimo de R$500,00.");
             }
-        } else {
+        } else if (idade < 20) {
             JOptionPane.showMessageDialog(null,
-                    "Usuário não possui os requisitos necessários para um empréstimo. Saldo mínimo de R$500,0 necessário e estar no mínimo no ano em que completa 20 anos.");
+                    "Usuário não tem idade mínima para fazer empréstimo. idade mínima: completar 20 anos este ano");
         }
 
     }
@@ -89,7 +93,7 @@ public class ContaFisica extends Conta {
         } else if (valorEmprestimoaPedido == 0) {
             JOptionPane.showMessageDialog(null, "Empréstimo recusado. Valor mínimo não atingido.");
         } else if (valorEmprestimoaPedido < 0) {
-            JOptionPane.showMessageDialog(null, "Empreéstimo recusado. Você não pode escolher um valor negativo.");
+            JOptionPane.showMessageDialog(null, "Empréstimo recusado. Você não pode escolher um valor negativo.");
         } else {
             JOptionPane.showMessageDialog(null, "Empréstimo recusado. Valor máximo excedido.");
         }
