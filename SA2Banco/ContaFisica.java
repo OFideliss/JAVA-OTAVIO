@@ -12,7 +12,7 @@ public class ContaFisica extends Conta {
     int anoNascimento;
 
     // set get
-    
+
     public String getnCPF() {
         return nCPF;
     }
@@ -49,14 +49,13 @@ public class ContaFisica extends Conta {
 
     public void emprestimoPF() {// Pedir emprestimo
 
-        double valorEmprestimo = 0;
+        // double valorEmprestimo = 0;
         if (saldo <= 500) {
             JOptionPane.showMessageDialog(null, "Usuário não possui os requisitos necessários para um emprestimo.");
 
         } else if (saldo > 500 & saldo < 5000) {
             valorEmprestimo = saldo * 1.5;
             JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
-
         } else if (saldo > 5000 & saldo < 50000) {
             valorEmprestimo = saldo * 1.8;
             JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
@@ -68,5 +67,9 @@ public class ContaFisica extends Conta {
             JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
         }
 
+    }
+
+    public void EmprestimoAceito() {
+        saldo += valorEmprestimo;
     }
 }
