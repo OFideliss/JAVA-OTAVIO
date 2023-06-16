@@ -10,7 +10,7 @@ public class ContaFisica extends Conta {
     int diaNascimento;
     int mesNascimento;
     int anoNascimento;
-
+    int idade;
     // set get
 
     public String getnCPF() {
@@ -45,31 +45,53 @@ public class ContaFisica extends Conta {
         this.nCPF = nCPF;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     // métodos definidos pelo programador/opcionais
 
     public void emprestimoPF() {// Pedir emprestimo
-
-        // double valorEmprestimo = 0;
-        if (saldo <= 500) {
-            JOptionPane.showMessageDialog(null, "Usuário não possui os requisitos necessários para um emprestimo.");
-
-        } else if (saldo > 500 & saldo <= 5000) {
-            valorEmprestimo = saldo * 1.5;
-            JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
-        } else if (saldo > 5000 & saldo <= 50000) {
-            valorEmprestimo = saldo * 1.8;
-            JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
-        } else if (saldo > 50000 & saldo <= 250000) {
-            valorEmprestimo = saldo * 3;
-            JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
-        } else if (saldo > 250000) {
-            valorEmprestimo = saldo * 5;
-            JOptionPane.showMessageDialog(null, "Valor disponivel para emprestimo R$: " + valorEmprestimo);
+        idade = 2023 - anoNascimento;
+        if (idade >= 20 && saldo >= 500) {
+            if (saldo >= 500 & saldo <= 5000) {
+                valorEmprestimo = saldo * 1.5;
+                JOptionPane.showMessageDialog(null, "Valor disponivel para empréstimo: R$" + valorEmprestimo + ".");
+            } else if (saldo > 5000 & saldo <= 50000) {
+                valorEmprestimo = saldo * 1.8;
+                JOptionPane.showMessageDialog(null, "Valor disponivel para empréstimo: R$" + valorEmprestimo + ".");
+            } else if (saldo > 50000 & saldo <= 250000) {
+                valorEmprestimo = saldo * 3;
+                JOptionPane.showMessageDialog(null, "Valor disponivel para empréstimo: R$" + valorEmprestimo + ".");
+            } else if (saldo > 250000) {
+                valorEmprestimo = saldo * 5;
+                JOptionPane.showMessageDialog(null, "Valor disponivel para empréstimo: R$" + valorEmprestimo + ".");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Usuário não possui os requisitos necessários para um empréstimo. Saldo mínimo de R$500,0 necessário e estar no mínimo no ano em que completa 20 anos.");
         }
 
     }
 
-    public void EmprestimoAceito() {
-        saldo += valorEmprestimo;
+    // caso o emprestimo seja aceito pelo usuario
+    public void EmprestimoAceitoPF() {
+        valorEmprestimoaPedido = Integer.parseInt(JOptionPane.showInputDialog(
+                "Informe o valor do empréstimo que deseja realizar. Limite máximo: R$" + valorEmprestimo));
+
+        if (valorEmprestimoaPedido <= valorEmprestimo && valorEmprestimoaPedido > 0) {
+            saldo += valorEmprestimoaPedido;
+            JOptionPane.showMessageDialog(null, "Empréstimo aceito. Parabéns. Seu saldo agora é de: R$" + saldo + ".");
+        } else if (valorEmprestimoaPedido == 0) {
+            JOptionPane.showMessageDialog(null, "Empréstimo recusado. Valor mínimo não atingido.");
+        } else if (valorEmprestimoaPedido < 0) {
+            JOptionPane.showMessageDialog(null, "Empreéstimo recusado. Você não pode escolher um valor negativo.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Empréstimo recusado. Valor máximo excedido.");
+        }
     }
 }

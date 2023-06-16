@@ -9,10 +9,12 @@ public abstract class Conta {
     int nConta;
     double saldo;
     double valorEmprestimo;
+    double valorEmprestimoaPedido;
 
     // métodos
     // construtor vazio(default)
     // get e set
+
     public String getNome() {
         return nome;
     }
@@ -44,13 +46,21 @@ public abstract class Conta {
     public void setValorEmprestimo(double valorEmprestimo) {
         this.valorEmprestimo = valorEmprestimo;
     }
+
+    public double getValorEmprestimoaPedido() {
+        return valorEmprestimoaPedido;
+    }
+
+    public void setValorEmprestimoaPedido(double valorEmprestimoaPedido) {
+        this.valorEmprestimoaPedido = valorEmprestimoaPedido;
+    }
     // métodos definidos pelo programador/opcionais
 
     public void saque() {// Saque
         double saque = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor do saque:"));
         if (saque <= saldo) {
             saldo -= saque;
-            JOptionPane.showMessageDialog(null, "Saque realizado com sucesso. Seu saldo agora é de R$: " + saldo);
+            JOptionPane.showMessageDialog(null, "Saque realizado com sucesso. Seu saldo agora é de: R$" + saldo + ".");
         } else {
             JOptionPane.showMessageDialog(null, "Operação cancelada. Saldo insuficiente.");
         }
@@ -59,7 +69,7 @@ public abstract class Conta {
     public void deposito() {// Depósito
         double deposito = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor do depósito:"));
         saldo += deposito;
-        JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso. Seu saldo agora é de R$: " + saldo);
+        JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso. Seu saldo agora é de: R$" + saldo + ".");
     }
 
 }

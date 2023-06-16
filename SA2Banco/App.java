@@ -100,7 +100,7 @@ public class App {
 
                                     if (acao2 == 1) {// consultar saldo
                                         JOptionPane.showMessageDialog(null,
-                                                "Seu saldo é de R$: " + clientePF[i].getSaldo());
+                                                "Seu saldo é de: R$" + clientePF[i].getSaldo());
 
                                     } else if (acao2 == 2) {// sacar dinheiro
                                         clientePF[i].saque();
@@ -112,7 +112,7 @@ public class App {
                                         clientePF[i].emprestimoPF();
                                         boolean emprestimoOnline = true;
                                         while (emprestimoOnline) {
-                                            if (clientePF[i].getSaldo() <= 500) {
+                                            if (clientePF[i].getSaldo() < 500 || clientePF[i].getIdade() < 20) {
                                                 emprestimoOnline = false;
                                                 break;
                                             }
@@ -122,9 +122,7 @@ public class App {
                                                                     + "\n 1-Sim"
                                                                     + "\n 2-Não"));
                                             if (acao4 == 1) {
-                                                clientePF[i].EmprestimoAceito();
-                                                JOptionPane.showMessageDialog(null,
-                                                "Empéstimo realizado com sucesso. Seu saldo é de R$: " + clientePF[i].getSaldo());
+                                                clientePF[i].EmprestimoAceitoPF();
                                                 emprestimoOnline = false;
                                                 break;
                                             } else if (acao4 == 2) {
@@ -137,7 +135,7 @@ public class App {
 
                                     } else { // caso o usuario digite outro numero
                                         JOptionPane.showMessageDialog(null,
-                                                "Operação inválida. Escolha uma operação válida");
+                                                "Operação inválida. Escolha uma operação válida.");
                                     }
 
                                 }
@@ -149,7 +147,7 @@ public class App {
                         aberto = false;
 
                     } else { // caso o usuario digite outro numero
-                        JOptionPane.showMessageDialog(null, "Operação invalida. Escolha uma operação válida");
+                        JOptionPane.showMessageDialog(null, "Operação invalida. Escolha uma operação válida.");
 
                     }
                 }
@@ -174,7 +172,10 @@ public class App {
                         clientePJ[contPJ].setSaldo(0);
 
                         // acrescimo no contador
-                        JOptionPane.showMessageDialog(null, "Conta criada com sucesso");
+                        JOptionPane.showMessageDialog(null, "Conta criada com sucesso"
+                                + "\n Conta n°: " + clientePJ[contPJ].getnConta() + "."
+                                + "\n Empresa: " + clientePJ[contPJ].getNome() + "."
+                                + "\n CNPJ: " + clientePJ[contPJ].getnCNPJ() + ".");
                         contPJ++;
                     } else if (acao1 == 2) { // Acessar uma conta já criada
 
@@ -190,34 +191,75 @@ public class App {
                         }
 
                         // acessar as informações da conta. Menu de acesso da conta
-                        boolean acesso = true;
-                        while (acesso) {
-                            int acao2 = Integer.parseInt(JOptionPane.showInputDialog("Informe a operação desejada:"
-                                    + "\n 1-Consultor o Saldo"
-                                    + "\n 2-Realizar Saque"
-                                    + "\n 3-Realizar Depósito"
-                                    + "\n 4-Pedir empréstimo"
-                                    + "\n 5-Voltar"));
 
-                            if (acao2 == 1) {// consultar saldo
-                                JOptionPane.showMessageDialog(null, "Seu saldo é de R$: " + clientePJ[i].getSaldo());
+                        // Tela 1 da conta. informações da conta
+                        boolean acesso1 = true;
+                        while (acesso1) {
+                            int acao3 = Integer
+                                    .parseInt(JOptionPane.showInputDialog("Conta n°: " + clientePJ[i].getnConta() + "."
+                                            + "\n Empresa: " + clientePJ[i].getNome() + "."
+                                            + "\n CNPJ: " + clientePJ[i].getnCNPJ() + "."
+                                            + "\n      "
+                                            + "\n Ações: "
+                                            + "\n 1-Acessar operações"
+                                            + "\n 2-Voltar"));
+                            // operações de conta PJ
+                            if (acao3 == 1) {
+                                boolean acesso = true;
+                                while (acesso) {
+                                    int acao2 = Integer
+                                            .parseInt(JOptionPane.showInputDialog("Informe a operação desejada:"
+                                                    + "\n 1-Consultor o Saldo"
+                                                    + "\n 2-Realizar Saque"
+                                                    + "\n 3-Realizar Depósito"
+                                                    + "\n 4-Pedir empréstimo"
+                                                    + "\n 5-Voltar"));
 
-                            } else if (acao2 == 2) {// sacar dinheiro
-                                clientePJ[i].saque();
+                                    if (acao2 == 1) {// consultar saldo
+                                        JOptionPane.showMessageDialog(null,
+                                                "Seu saldo é de: R$" + clientePJ[i].getSaldo());
 
-                            } else if (acao2 == 3) {// depositar dinheiro
-                                clientePJ[i].deposito();
+                                    } else if (acao2 == 2) {// sacar dinheiro
+                                        clientePJ[i].saque();
 
-                            } else if (acao2 == 4) {// pedir empréstimo
-                                clientePJ[i].emprestimoPJ();
+                                    } else if (acao2 == 3) {// depositar dinheiro
+                                        clientePJ[i].deposito();
 
-                            } else if (acao2 == 5) {// Voltar ao menu anterior
-                                acesso = false;
+                                    } else if (acao2 == 4) {// pedir empréstimo
+                                        clientePJ[i].emprestimoPJ();
+                                        boolean emprestimoOnline = true;
+                                        while (emprestimoOnline) {
+                                            if (clientePJ[i].getSaldo() < 500) {
+                                                emprestimoOnline = false;
+                                                break;
+                                            }
+                                            int acao4 = Integer
+                                                    .parseInt(
+                                                            JOptionPane.showInputDialog("Deseja Realizar o empréstimo?"
+                                                                    + "\n 1-Sim"
+                                                                    + "\n 2-Não"));
+                                            if (acao4 == 1) {
+                                                clientePJ[i].EmprestimoAceitoPJ();
+                                                emprestimoOnline = false;
+                                                break;
+                                            } else if (acao4 == 2) {
+                                                emprestimoOnline = false;
+                                                break;
+                                            }
+                                        }
 
-                            } else if (acao2 != 1 & acao2 != 2 & acao2 != 3 & acao2 != 4 & acao2 != 5) {
-                                JOptionPane.showMessageDialog(null, "Operação inválida. Escolha uma operação válida");
+                                    } else if (acao2 == 5) {// Voltar ao menu anterior
+                                        acesso = false;
+
+                                    } else if (acao2 != 1 & acao2 != 2 & acao2 != 3 & acao2 != 4 & acao2 != 5) {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Operação inválida. Escolha uma operação válida.");
+                                    }
+
+                                }
+                            } else if (acao3 == 2) {//
+                                acesso1 = false; // Voltar ao menu anterior
                             }
-
                         }
                     } else if (acao1 == 3) { // Voltar ao menu anterior
                         aberto = false;
@@ -226,11 +268,11 @@ public class App {
             }
 
             else if (acao == 3) { // Voltar ao menu anterior
-                JOptionPane.showMessageDialog(null, "Você saiu do sistema SDNC. Até logo");
+                JOptionPane.showMessageDialog(null, "Você saiu do sistema SDNC. Até logo.");
                 corabolador = false;
 
             } else {
-                JOptionPane.showMessageDialog(null, "Operação inválida. Escolha uma operação válida");
+                JOptionPane.showMessageDialog(null, "Operação inválida. Escolha uma operação válida.");
 
             }
         }
