@@ -6,16 +6,18 @@ public abstract class Animal {
     double peso;
     String especie;
     String proprietario;
+    int registroAnimal;
 
     //
     // Métodos
     //
     // construtor cheio
-    public Animal(String nome, double peso, String especie, String proprietario) {
+    public Animal(String nome, double peso, String especie, String proprietario, int registroAnimal) {
         this.nome = nome;
         this.peso = peso;
         this.especie = especie;
         this.proprietario = proprietario;
+        this.registroAnimal = registroAnimal;
     }
 
     //
@@ -55,6 +57,14 @@ public abstract class Animal {
 
     public void setProprietario(String proprietario) {
         this.proprietario = proprietario;
+    }
+
+    public int getRegistroAnimal() {
+        return registroAnimal;
+    }
+
+    public void setRegistroAnimal(int registroAnimal) {
+        this.registroAnimal = registroAnimal;
     }
 
 }
