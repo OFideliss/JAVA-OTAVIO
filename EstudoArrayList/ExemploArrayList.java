@@ -76,5 +76,6 @@ public class ExemploArrayList {
             System.out.println(i);
         }
 //teste
+//teste
     }
 }
