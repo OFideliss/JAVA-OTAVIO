@@ -1,6 +1,8 @@
 package EstudoArrayList;
 
-import java.util.ArrayList;
+import java.util.*;
+
+import javax.swing.JOptionPane;
 
 public class ExemploArrayList {
     // atributo
@@ -16,18 +18,29 @@ public class ExemploArrayList {
         carros.add("Celta");
         carros.add("Monza");
         carros.add("Gol");
+        //
+        // Collections.sort(ordena em ordem alfabética ou númerica)
+        Collections.sort(carros);
+        //
         // Imprimir toda a lista
         System.out.println(carros);
+        //
         // Imprimir valor do index 4 (Quinta posição)
         System.out.println(carros.get(4));
+        //
         // Percorrendo a lista com o FOR-I
         for (int i = 0; i < carros.size(); i++) {
             System.out.println(carros.get(i));
         }
+        //
+        // Collections.reverse(invertendo as listas)
+        Collections.reverse(carros);
+        //
         // Percorrendo a lista com FOR-EACH
         for (String i : carros) {
             System.out.println(i);
         }
+        //
         // Apagar a lista
         carros.clear();
         System.out.println(carros);
@@ -36,20 +49,30 @@ public class ExemploArrayList {
     //
     // método
     public void exercicio() {
-        // criar um ArrayList do tipo Inteiro e acresventer 5 valores
-        ArrayList<Integer> inteiro = new ArrayList<>();
+        // criar um ArrayList do tipo Inteiro e acrescenter 5 valores
+        ArrayList<Integer> num = new ArrayList<>(); // usar Integer para declarar variavel do tipo inteiro(int)
         // adicionar valores ao ArrayList
-        inteiro.add(1);
-        inteiro.add(2);
-        inteiro.add(3);
-        inteiro.add(4);
-        inteiro.add(5);
-
+        // num.add(1);
+        // num.add(2);
+        // num.add(3);
+        // num.add(4);
+        // num.add(5);
+        // Preenchendo o ArrayList com um FORI
+        for (int i = 0; i < 5; i++) {
+            num.add(Integer.parseInt(JOptionPane.showInputDialog("Digite o " + (i + 1) + "º valor")));
+        }
+        //
+        // Collections.sort(ordena em ordem alfabética ou númerica)
+        Collections.sort(num);
+        //
         // imprimir o Arraylist
-        System.out.println(inteiro);
-
+        System.out.println(num);
+        //
+        // Collections.reverse(invertendo as listas)
+        Collections.reverse(num);
+        //
         // imprimir com o FOR-EACH
-        for (Integer i : inteiro) {
+        for (int i : num) {
             System.out.println(i);
         }
 
