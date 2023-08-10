@@ -8,6 +8,14 @@ public class ExemploLinkedList {
     //
     //método
     public void teste() {
-        
+        pessoas.add("Maria");
+        pessoas.add("Joana");
+        pessoas.add("Pedro");
+        //
+        //adicionando na primeira posição
+        pessoas.addFirst("Ana");
+        //
+        //imprimir o primeiro valor
+        System.out.println(pessoas.getFirst());
     }
 }
