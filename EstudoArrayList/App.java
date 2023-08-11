@@ -6,7 +6,11 @@ public class App {
         // obj1.teste();
         // obj1.exercicio();
         //
-        ExemploLinkedList obj = new ExemploLinkedList();
-        obj.teste();
+        // ExemploLinkedList obj2 = new ExemploLinkedList();
+        // obj2.teste();
+        //
+        ExemploHashMap obj3 = new ExemploHashMap();
+        // obj3.teste();
+        obj3.exercicio();
     }
 }
