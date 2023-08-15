@@ -1,5 +1,7 @@
 package LojaCarrosList.src;
 
+import javax.swing.JOptionPane;
+
 public class Carros {
     // Atributos
     String marca;
@@ -57,4 +59,17 @@ public class Carros {
         this.cor = cor;
     }
 
+    //
+    // =============================================================
+    //
+    // método próprio
+    public String imprimirLN() { // listar
+        String imprimir = marca + " " + modelo +"\n";
+        return imprimir;
+    }
+
+    //
+    public void imprimir() { // consultar
+        JOptionPane.showMessageDialog(null, marca + "\n" + modelo + "\n" + ano + "\n" + cor);
+    }
 }
