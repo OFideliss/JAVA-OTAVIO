@@ -6,6 +6,7 @@ public class App {
         // new AWTFrameExemplo();
         // new SwingJFrameExemplo();
         // new JOptionPaneExemplo();
-        new ContainerComponentes();
+        // new ContainerComponentes();
+        new JButtonAndJLabel();
     }
 }
