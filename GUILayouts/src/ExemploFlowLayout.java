@@ -9,7 +9,7 @@ public class ExemploFlowLayout {
     public ExemploFlowLayout() {
         // criar um janela do tipo frame
         JFrame janela1 = new JFrame("Janela FlowLayout");
-        // Chamei o LAyout
+        // Chamei o Layout
         FlowLayout flow = new FlowLayout();
         janela1.setLayout(flow);// atribui o layout
         // criar alguns componentes
