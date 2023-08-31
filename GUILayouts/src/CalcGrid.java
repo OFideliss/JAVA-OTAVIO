@@ -21,7 +21,7 @@ public class CalcGrid {
         // Set Layout do JPanel
         GridLayout gridCalc = new GridLayout(4, 4); // Quatro linhas por Quatro Colunas
         painelCalc.setLayout(gridCalc);
-        JTextField campoTexto = new JTextField("Insira um Valor", 25);
+        JTextField campoTexto = new JTextField("Insira um Valor", 25);  
         painelV.add(campoTexto);
 
         // Vetor com os textos dos botões
