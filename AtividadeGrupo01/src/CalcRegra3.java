@@ -16,7 +16,7 @@ public class CalcRegra3 extends JPanel {
         JTextField campoTextoA = new JTextField("", 25); // Cria um campo (caixa de texto) para inserir o primeiro valor
         campoTextoA.setHorizontalAlignment(SwingConstants.CENTER); // centraliza horizontalmente o valor digitado no
                                                                    // campo
-        campoTextoA.setBackground(Color.decode("#127382"));// Muda a cor de fundo da caixa de texto
+        campoTextoA.setBackground(Color.decode("#127382")); // Muda a cor de fundo da caixa de texto
         painel1.add(campoTextoA); // adiciona a caixa de texto ao painel1
 
         JLabel texto1 = new JLabel("Está para"); // cria um texto para ficar entre os campos

@@ -27,7 +27,14 @@ public class ExemploFor {
     }
 
     public void exemplo3() {
-        // Carrinho de Compra
+        // Carrinho de Comp
+        
+
+
+
+
+
+        
         double carrinhoCompra[] = new double[] { 19.90, 35.70, 56.80, 97.50 };
         // Finalizar a compra
         double valorFinal = 0;
