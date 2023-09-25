@@ -25,22 +25,25 @@ public class Exercicio1 extends JFrame {
         cardPrincipal.setLayout(cl);
         //
         // Criar os cards da pilha cardPrinciapl
-        JPanel card1 = new JPanel(); // Primeiro Card
+        // Primeiro Card
+        JPanel card1 = new JPanel();
         // Add ao card1 um JLabel com um texto
         card1.add(new JLabel("Algum texto aleatorio ai não sei estou sem ideia"));
-        JPanel card2 = new JPanel(); // Segundo Card
+        // Segundo Card
+        JPanel card2 = new JPanel();
         // Add ao card2 um JButton com um texto
         card2.add(new JButton("Um botão sem importancia"));
-        JPanel card3 = new JPanel(); // Terceiro Card
+        // Terceiro Card
+        JPanel card3 = new JPanel();
         // Add ao card3 um JTextField com um texto
         card3.add(new JTextField("Agora estou sem ideia", 20));
         //
         // Add os card a pilha principal de cards
-        cardPrincipal.add(card1); // add o card1
-        cardPrincipal.add(card2); // add o card2
-        cardPrincipal.add(card3); // add o card3
+        cardPrincipal.add(card1,"Card1"); // add o card1
+        cardPrincipal.add(card2,"Card2"); // add o card2
+        cardPrincipal.add(card3,"Card3"); // add o card3
         //
-        // Add o cardPrincipal ao painel 
+        // Add o cardPrincipal ao painel
         painelPrincipal.add(cardPrincipal);
         this.add(painelPrincipal);
         //
@@ -49,10 +52,10 @@ public class Exercicio1 extends JFrame {
         this.setBounds(100, 100, 300, 300);
         this.setVisible(true);
         //
-        //Criar a ação para o botão
-        botaoTrocar.addActionListener(e -> { //Quando for um botão tem que ser um ActionListner
-            cl.previous(cardPrincipal);
-          });
+        // Criar a ação para o botão
+        botaoTrocar.addActionListener(e -> { // Quando for um botão tem que ser um ActionListner
+            cl.next(cardPrincipal); //toda vez que o botão for acionado ele muda para o proximo card
+        });
 
     }
 }
