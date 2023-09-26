@@ -1,12 +1,13 @@
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import java.awt.*;
 
-public class Exercicio3 extends JFrame {
+public class Exercicio3Old extends JFrame {
     // Chamar o ctor
-    public Exercicio3() {
+    public Exercicio3Old() {
         super("Exercicio 3");
         //
         // add o painel principal
@@ -14,17 +15,10 @@ public class Exercicio3 extends JFrame {
         this.add(painelPrincipal);
         //
         // ===================================Botões====================================
-        // Foi necessário criar botões especifico para cada card, pois não é possivel
-        // adicionar o mesmo botão a cards diferentes
-        // ==========Criar os botões de navegação para o cardInicio==========
-        JButton bLoginCardInicio = new JButton("Login"); // Botão Login
-        JButton bCadastroCardInicio = new JButton("Cadastro"); // Botão Cadastro
-        // ==========Criar os botões de navegação para o cardLogin==========
-        JButton bInicioCardLogin = new JButton("Inicio"); // Botão Incio
-        JButton bCadastroCardLogin = new JButton("Cadastro"); // Botão Cadastro
-        // ==========Criar os botões de navegação para o cardCadastro==========
-        JButton bInicioCardCadastro = new JButton("Inicio"); // Botão Incio
-        JButton bLoginCardCadastro = new JButton("Login"); // Botão Cadastro
+        // Criar os botões de navegação
+        JButton bInicio = new JButton("Inicio"); // Botão Incio
+        JButton bLogin = new JButton("Login"); // Botão Login
+        JButton bCadastro = new JButton("Cadastro"); // Botão Cadastro
         //
         // ================================Card Principal===============================
         // Criar o card principal
@@ -41,14 +35,14 @@ public class Exercicio3 extends JFrame {
         //
         // ====================Adicionar botões aos cards===============================
         // Adiciona os botões do card Inicio
-        cardInicio.add(bLoginCardInicio);
-        cardInicio.add(bCadastroCardInicio);
+        cardInicio.add(bLogin);
+        cardInicio.add(bCadastro);
         // Adiciona os botões do card Login
-        cardLogin.add(bInicioCardLogin);
-        cardLogin.add(bCadastroCardLogin);
+        cardLogin.add(bInicio);
+        cardLogin.add(bCadastro);
         // Adiciona os botões do card Cadastro
-        cardCadastro.add(bInicioCardCadastro);
-        cardCadastro.add(bLoginCardCadastro);
+        cardCadastro.add(bInicio);
+        cardCadastro.add(bLogin);
         //
         // ====================Adicionar os cards ao cardPrincipal=====================
         // Add os card a pilha principal de cards
@@ -68,34 +62,18 @@ public class Exercicio3 extends JFrame {
         //
         // ============================Criar ações para os botões=======================
         //
-        // ===========Botões do cardInicio===========
-        // Botão leva ao inicio
-        bLoginCardInicio.addActionListener(e -> {
-            cl.show(cardPrincipal, "Card Login");
-        });
-        // Botão leva ao cadastro
-        bCadastroCardInicio.addActionListener(e -> {
-            cl.show(cardPrincipal, "Card Cadastro");
-        });
-        // ===========Botões do cardLogin===========
-        // Botão leva ao Inicio
-        bInicioCardLogin.addActionListener(e -> {
-            cl.show(cardPrincipal, "Card Inicio");
-        });
-        // Botão leva ao cadastro
-        bCadastroCardLogin.addActionListener(e -> {
-            cl.show(cardPrincipal, "Card Cadastro");
-        });
-        // ===========Botões do cardCadastro===========
-        // Botão leva ao inicio
-        bInicioCardCadastro.addActionListener(e -> {
+        // Botão leva ao inciio
+        bInicio.addActionListener(e -> {
             cl.show(cardPrincipal, "Card Inicio");
         });
         // Botão leva ao login
-        bLoginCardCadastro.addActionListener(e -> {
+        bLogin.addActionListener(e -> {
             cl.show(cardPrincipal, "Card Login");
+        });
+        // Botão leva ao cadastro
+        bCadastro.addActionListener(e -> {
+            cl.show(cardPrincipal, "Card Cadastro");
         });
     }
 
 }
-
