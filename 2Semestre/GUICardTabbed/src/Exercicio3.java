@@ -1,5 +1,6 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.*;
@@ -26,6 +27,10 @@ public class Exercicio3 extends JFrame {
         JButton bInicioCardCadastro = new JButton("Inicio"); // Botão Incio
         JButton bLoginCardCadastro = new JButton("Login"); // Botão Cadastro
         //
+        // ====================Criar componentes dos cards==============================
+        // Componentes do cardInicio
+        JLabel TextoCardInicio = new JLabel("Seja Bem-Vindo"); // texto da pagina Inicio
+        //
         // ================================Card Principal===============================
         // Criar o card principal
         JPanel cardPrincipal = new JPanel(); // Card Principal onde ficara os outros cards
@@ -50,6 +55,9 @@ public class Exercicio3 extends JFrame {
         cardCadastro.add(bInicioCardCadastro);
         cardCadastro.add(bLoginCardCadastro);
         //
+        // ====================Add componentes aos cards==============================
+        // Adiciona os componentes dao card Inicio
+         cardInicio.add(TextoCardInicio);
         // ====================Adicionar os cards ao cardPrincipal=====================
         // Add os card a pilha principal de cards
         cardPrincipal.add(cardInicio, "Card Inicio"); // add o card incio
@@ -98,4 +106,3 @@ public class Exercicio3 extends JFrame {
     }
 
 }
-
