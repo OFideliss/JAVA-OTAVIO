@@ -4,6 +4,7 @@ public class App {
         // new ExemploCardLayout();
         // new Exercicio1();
         // new Exercicio3Old();
-         new Exercicio3();
+        // new Exercicio3();
+        new Exercicio5();
     }
 }
