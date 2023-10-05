@@ -29,6 +29,7 @@ public class ExemploNomeSobrenome extends JFrame {
         mainPanel.add(new JLabel("Sobrenome:"));
         caixaSobrenome = new JTextField();
         mainPanel.add(caixaSobrenome);
+        
         JButton botao = new JButton("Concatenar");
         mainPanel.add(botao);
         texto = new JLabel();
