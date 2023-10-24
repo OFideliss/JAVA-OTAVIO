@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.logging.Handler;
-import java.awt.event.ActionEvent;;
+import java.awt.event.ActionEvent;
 
 public class ExemploNomeSobrenome extends JFrame {
     // atributos

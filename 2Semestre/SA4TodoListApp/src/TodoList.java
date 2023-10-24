@@ -69,8 +69,6 @@ public class TodoList extends JFrame {
     }
     // Criar os Tratamentos de eventos - Listener e eventos
 
-
-
     // Criar os Métodos (CRUD)
     private void addTask() {
         // Adiciona uma nova task à lista de tasks
@@ -126,14 +124,14 @@ public class TodoList extends JFrame {
         updateTaskList();
     }
 
-private void updateTaskList() {
-// Atualiza a lista de tasks exibida na GUI
-listModel.clear();
-for (Task task : tasks) {
-listModel.addElement(task.getDescription() + (task.isDone() ?
+    private void updateTaskList() {
+        // Atualiza a lista de tasks exibida na GUI
+        listModel.clear();
+        for (Task task : tasks) {
+            listModel.addElement(task.getDescription() + (task.isDone() ?
 
-" (Concluída)" : ""));
-}
-}
+                    " (Concluída)" : ""));
+        }
+    }
 
 }
