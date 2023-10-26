@@ -5,6 +5,6 @@ public class App {
         // new Exercicio1();
         // new Exercicio3Old();
         // new Exercicio3();
-        new Exercicio5();
+     new Exercicio5();
     }
 }

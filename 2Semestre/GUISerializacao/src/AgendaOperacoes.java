@@ -4,54 +4,52 @@ import javax.swing.table.DefaultTableModel;
 
 public class AgendaOperacoes {
     // atributos
-    private List<Usuario> usuarios;
+    private List<Agenda> agendas;
     private DefaultTableModel tableModel;
     private JTable table;
 
     // construtor
-    public AgendaOperacoes(List<Usuario> usuarios, DefaultTableModel tableModel, JTable table) {
-        this.usuarios = usuarios;
+    public AgendaOperacoes(List<Agenda> agendas, DefaultTableModel tableModel, JTable table) {
+        this.agendas = agendas;
         this.tableModel = tableModel;
         this.table = table;
     }
 
     // método crud
-    public void agendarUsuario(String nome, String idade) {
-        int idadeInt = Integer.parseInt(idade);
-        Usuario usuario = new Usuario(nome, idadeInt);
-        usuarios.add(usuario);
+    public void agendarUsuario(String nome, String data, String hora, String descricao) {
+        Agenda usuario = new Agenda(nome, data, hora, descricao);
+        agendas.add(usuario);
         atualizarTabela();
     }
 
-    public void atualizarAgenda(int linhaSelecionada, String nome, String idade) {
+    public void atualizarAgenda(int linhaSelecionada, String nome, String data, String hora, String descricao) {
         if (linhaSelecionada != -1) {
-            int idadeInt = Integer.parseInt(idade);
-            Usuario usuario = new Usuario(nome, idadeInt);
-            usuarios.set(linhaSelecionada, usuario);
+            Agenda usuario = new Agenda(nome, data, hora, descricao);
+            agendas.set(linhaSelecionada, usuario);
             atualizarTabela();
         }
     }
 
     public void apagarHorario(int linhaSelecionada) {
         if (linhaSelecionada != -1) {
-            usuarios.remove(linhaSelecionada);
+            agendas.remove(linhaSelecionada);
             atualizarTabela();
         }
     }
 
     public void apagarTodosHorarios() {
-        usuarios.clear();
+        agendas.clear();
         atualizarTabela();
     }
 
     public void salvarHorario() {
-        Serializacao.serializar("dados.txt", usuarios);
+        Serializacao.serializar1("dadosAgenda.txt", agendas);
     }
 
     private void atualizarTabela() {
         tableModel.setRowCount(0);
-        for (Usuario usuario : usuarios) {
-            tableModel.addRow(new Object[] { usuario.getNome(), usuario.getIdade() });
+        for (Agenda usuario : agendas) {
+            tableModel.addRow(new Object[] { usuario.getUsuario(), usuario.getData(), usuario.getHora(), usuario.getDescricao() });
         }
     }
 }

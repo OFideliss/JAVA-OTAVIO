@@ -9,32 +9,31 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgendaUsuario extends JFrame {
-    private JTextField inputNome;
-    private JTextField inputIdade;
+public class AgendaUsuario extends JPanel {
+    private JTextField inputUsuario;
     private JTextField inputData;
+    private JTextField inputHora;
+    private JTextField inputDescricao;
     private DefaultTableModel tableModel;
     private JTable table;
-    private List<Usuario> usuarios = new ArrayList<>();
+    private List<Agenda> agendas = new ArrayList<>();
     private int linhaSelecionada = -1;
 
     public AgendaUsuario() {
-        setTitle("Cadastro de Usuários");
-        setSize(600, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-
         tableModel = new DefaultTableModel();
         tableModel.addColumn("Nome");
-        tableModel.addColumn("Idade");
+        tableModel.addColumn("Data");
+        tableModel.addColumn("Hora");
+        tableModel.addColumn("Descricao");
 
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
 
+        inputUsuario = new JTextField(20);
         inputData = new JTextField(5);
-        inputNome = new JTextField(20);
-        inputIdade = new JTextField(5);
-        JButton cadastrarButton = new JButton("Cadastrar");
+        inputHora = new JTextField(5);
+        inputDescricao = new JTextField(20);
+        JButton agendarButton = new JButton("Agendar");
         JButton atualizarButton = new JButton("Atualizar");
         JButton apagarButton = new JButton("Apagar");
         JButton apagarTodosButton = new JButton("Apagar Todos");
@@ -46,10 +45,10 @@ public class AgendaUsuario extends JFrame {
         inputPanel.add(new JLabel("Hora:"));
         inputPanel.add(inputHora);
         inputPanel.add(new JLabel("Nome:"));
-        inputPanel.add(inputNome);
+        inputPanel.add(inputUsuario);
         inputPanel.add(new JLabel("Descriçao:"));
         inputPanel.add(inputDescricao);
-        inputPanel.add(cadastrarButton);
+        inputPanel.add(agendarButton);
         inputPanel.add(atualizarButton);
         inputPanel.add(apagarButton);
         inputPanel.add(apagarTodosButton);
@@ -59,9 +58,9 @@ public class AgendaUsuario extends JFrame {
         add(inputPanel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
 
-        File arquivo = new File("dados.txt");
+        File arquivo = new File("dadosAgenda.txt");
         if (arquivo.exists()) {
-            usuarios = Serializacao.deserializar("dados.txt");
+            agendas = Serializacao.deserializar1("dadosAgenda.txt");
             atualizarTabela();
         }
 
@@ -70,62 +69,62 @@ public class AgendaUsuario extends JFrame {
             public void mouseClicked(MouseEvent evt) {
                 linhaSelecionada = table.rowAtPoint(evt.getPoint());
                 if (linhaSelecionada != -1) {
-                    inputNome.setText((String) table.getValueAt(linhaSelecionada, 0));
-                    inputIdade.setText(table.getValueAt(linhaSelecionada, 1).toString());
+                    inputUsuario.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    inputData.setText(table.getValueAt(linhaSelecionada, 1).toString());
                 }
             }
         });
 
-        OperacoesUsuarios operacoes = new OperacoesUsuarios(usuarios, tableModel, table);
+        AgendaOperacoes operacoes = new AgendaOperacoes(agendas, tableModel, table);
 
-        cadastrarButton.addActionListener(new ActionListener() {
+        agendarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operacoes.cadastrarUsuario(inputNome.getText(), inputIdade.getText());
-                inputNome.setText("");
-                inputIdade.setText("");
+                operacoes.agendarUsuario(inputUsuario.getText(), inputData.getText(), inputHora.getText(),
+                        inputDescricao.getText());
+                inputUsuario.setText("");
+                inputData.setText("");
+                inputHora.setText("");
+                inputDescricao.setText("");
             }
         });
 
         atualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operacoes.atualizarUsuario(linhaSelecionada, inputNome.getText(), inputIdade.getText());
+                operacoes.atualizarAgenda(linhaSelecionada, inputUsuario.getText(), inputData.getText(),
+                        inputHora.getText(), inputDescricao.getText());
             }
         });
 
         apagarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operacoes.apagarUsuario(linhaSelecionada);
+                operacoes.apagarHorario(linhaSelecionada);
             }
         });
 
         apagarTodosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operacoes.apagarTodosUsuarios();
+                operacoes.apagarTodosHorarios();
             }
         });
 
         salvarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operacoes.salvarUsuarios();
+                operacoes.salvarHorario();
             }
         });
     }
 
     private void atualizarTabela() {
         tableModel.setRowCount(0);
-        for (Usuario usuario : usuarios) {
-            tableModel.addRow(new Object[] { usuario.getNome(), usuario.getIdade() });
+        for (Agenda agendas : agendas) {
+            tableModel.addRow(new Object[] { agendas.getUsuario(), agendas.getData(), agendas.getHora(),
+                    agendas.getDescricao() });
         }
-    }
-
-    public void run() {
-        pack();
-        setVisible(true);
     }
 
 }
