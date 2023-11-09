@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//ESTABELECER E FECHAR CONEXÃO
 public class ConnectionFactory {
     // Atributos de conexão
     private static String URL = "jdbc:postgresql://localhost:5432/postgres"; // URL de conexão com o banco de dados
@@ -21,6 +22,7 @@ public class ConnectionFactory {
         }
     }
 
+    // closeConnection
     public static void closeConnection(Connection connection) {
         try {
             if (connection != null) {
