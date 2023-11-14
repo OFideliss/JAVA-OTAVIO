@@ -22,12 +22,12 @@ public class CarrosDAO {
 
     // criar Tabela
     public void criaTabela() {
-        String sql = "CREATE TABLE IF NOT EXISTS carros_lojacarros (MARCA VARCHAR(255),MODELO VARCHAR(255),ANO VARCHAR(255),PLACA VARCHAR(255) PRIMARY KEY, VALOR VARCHAR(255))";
+        String sql = "CREATE TABLE IF NOT EXISTS carros_lojacarrosnoite (MARCA VARCHAR(255),MODELO VARCHAR(255),ANO VARCHAR(255),PLACA VARCHAR(255) PRIMARY KEY, VALOR VARCHAR(255))";
         try (Statement stmt = this.connection.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Tabela criada com sucesso.");
+            System.out.println("Tabela de carros criada com sucesso.");
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao criar a tabela: " + e.getMessage(), e);
+            throw new RuntimeException("Erro ao criar a tabela de carros: " + e.getMessage(), e);
         } finally {
             ConnectionFactory.closeConnection(this.connection);
         }
@@ -42,7 +42,7 @@ public class CarrosDAO {
         carros = new ArrayList<>();
         // Cria uma lista para armazenar os carros recuperados do banco de dados
         try {
-            stmt = connection.prepareStatement("SELECT * FROM carros_lojacarros");
+            stmt = connection.prepareStatement("SELECT * FROM carros_lojacarrosnoite");
             // Prepara a consulta SQL para selecionar todos os registros da tabela
             rs = stmt.executeQuery();
             // Executa a consulta e armazena os resultados no ResultSet
@@ -72,7 +72,7 @@ public class CarrosDAO {
     public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para cadastrar na tabela
-        String sql = "INSERT INTO carros_lojacarros (marca, modelo, ano, placa, valor)VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO carros_lojacarrosnoite (marca, modelo, ano, placa, valor)VALUES (?, ?, ?, ?, ?)";
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setString(1, marca);
@@ -93,7 +93,7 @@ public class CarrosDAO {
     public void atualizar(String marca, String modelo, String ano, String placa, String valor) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para atualizar dados pela placa
-        String sql = "UPDATE carros_lojacarros SET marca = ?, modelo = ?, ano = ?, valor =? WHERE placa = ?";
+        String sql = "UPDATE carros_lojacarrosnoite SET marca = ?, modelo = ?, ano = ?, valor =? WHERE placa = ?";
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setString(1, marca);
@@ -115,7 +115,7 @@ public class CarrosDAO {
     public void apagar(String placa) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para apagar dados pela placa
-        String sql = "DELETE FROM carros_lojacarros WHERE placa = ?";
+        String sql = "DELETE FROM carros_lojacarrosnoite WHERE placa = ?";
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setString(1, placa);

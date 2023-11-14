@@ -15,6 +15,7 @@ import Connection.CarrosDAO;
 import Controller.CarrosControl;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -92,9 +93,32 @@ public class CarrosPainel extends JPanel {
         // Configura a ação do botão "cadastrar" para adicionar um novo registro no
         // banco de dados
 
+        // Tratamento do botão cadastrar
         cadastrar.addActionListener(e -> {
             operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(),
                     carPlacaField.getText(), carValorField.getText());
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carPlacaField.setText("");
+            carValorField.setText("");
+        });
+
+        // Tratamento do botão editar
+        editar.addActionListener(e -> {
+            operacoes.atualizar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(),
+                    carPlacaField.getText(), carValorField.getText());
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carPlacaField.setText("");
+            carValorField.setText("");
+        });
+
+        // Configura a ação do botão "apagar" para excluir um registro no banco de dados
+        apagar.addActionListener(e -> {
+            operacoes.apagar(carPlacaField.getText());
+            // Limpa os campos de entrada após a operação de exclusão
             carMarcaField.setText("");
             carModeloField.setText("");
             carAnoField.setText("");
