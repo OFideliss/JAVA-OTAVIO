@@ -2,12 +2,11 @@ package Controller;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Connection.CarrosDAO;
 import Connection.ClientesDAO;
-import Model.Clientes;
 import Model.Clientes;
 
 public class ClientesControl {
@@ -31,30 +30,98 @@ public class ClientesControl {
         // Obtém os carros atualizados do banco de dados
         for (Clientes cliente : clientes) {
             // Adiciona os dados de cada carro como uma nova linha na tabela Swing
-            tableModel.addRow(new Object[] { cliente.getNome(), cliente.getEmail(),
-
-                    cliente.getEndereco(), cliente.getIdade(), cliente.getTelefone(), cliente.getCpf() });
+            tableModel.addRow(new Object[] { cliente.getNome(), cliente.getIdade(), cliente.getCpf() });
         }
     }
 
-    // Método para cadastrar um novo cliente no banco de dados
-    public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
-        new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
+    // Método para cadastrar um novo carro no banco de dados
+    public void cadastrar(String nome, String idade, String cpf) {
+        // Verificação se existe algum campo vazio
+        if (nome.isEmpty() || idade.isEmpty() || cpf.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos.");
+            return;
+        }
+
+        // Validação de dados para a marca
+        if (!ApenasLetras(nome)) {
+            JOptionPane.showMessageDialog(null, "Seu nome não pode conter números.");
+            return;
+        }
+
+        // Verifica se a idade é um valor válido - Apenas números
+        if (!ApenasNumeros(idade)) {
+            // Se ano não for um número, não realiza o cadastro e mostra uma mensagem
+            JOptionPane.showMessageDialog(null, "Digite uma idade válida (Apenas números)");
+            return;
+        }
+
+        if (!ApenasNumeros(cpf)) {
+            // Se ano não for um número, não realiza o cadastro e mostra uma mensagem
+            JOptionPane.showMessageDialog(null, "Digite um CPF válida (Apenas números)");
+            return;
+        }
+
         // Chama o método de cadastro no banco de dados
-        atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
+        new ClientesDAO().cadastrar(nome, idade, cpf);
+        // Atualiza a tabela de exibição após o cadastro
+        atualizarTabela();
+        // Mensagem confirmando o cadastro
+        JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso.");
     }
 
     // Método para atualizar os dados de um carro no banco de dados
-    public void atualizar(String marca, String modelo, String ano, String placa, String valor) {
-        new CarrosDAO().atualizar(marca, modelo, ano, placa, valor);
+    public void atualizar(String nome, String idade, String cpf) {
+
+        if (nome.isEmpty() || idade.isEmpty() || cpf.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos.");
+            return;
+        }
+
+        // Validação de dados para a marca
+        if (!ApenasLetras(nome)) {
+            JOptionPane.showMessageDialog(null, "Seu nome não pode conter números.");
+            return;
+        }
+
+        // Verifica se a idade é um valor válido - Apenas números
+        if (!ApenasNumeros(idade)) {
+            // Se ano não for um número, não realiza o cadastro e mostra uma mensagem
+            JOptionPane.showMessageDialog(null, "Digite uma idade válida (Apenas números)");
+            return;
+        }
+
+        if (!ApenasNumeros(cpf)) {
+            // Se ano não for um número, não realiza o cadastro e mostra uma mensagem
+            JOptionPane.showMessageDialog(null, "Digite um CPF válida (Apenas números)");
+            return;
+        }
+
         // Chama o método de atualização no banco de dados
-        atualizarTabela(); // Atualiza a tabela de exibição após a atualização
+        new ClientesDAO().atualizar(nome, idade, cpf);
+        // Atualiza a tabela de exibição após a atualização
+        atualizarTabela();
+        // Mensagem confirmando o edição
+        JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso.");
     }
 
     // Método para apagar um carro do banco de dados
-    public void apagar(String placa) {
-        new CarrosDAO().apagar(placa);
+    public void apagar(String cpf) {
         // Chama o método de exclusão no banco de dados
-        atualizarTabela(); // Atualiza a tabela de exibição após a exclusão
+        new ClientesDAO().apagar(cpf);
+        // Atualiza a tabela de exibição após a exclusão
+        atualizarTabela();
+        // Mensagem confirmando o edição
+        JOptionPane.showMessageDialog(null, "Cliente apagado com sucesso.");
     }
+
+    // ======================Validação de Dados==========================
+    // Método interno para validação de dados númericos
+    private boolean ApenasNumeros(String string) {
+        return string.matches("\\d*"); // Verifica se a string contém apenas dígitos
+    }
+
+    public boolean ApenasLetras(String texto) {
+        return texto.matches("\\p{L}+"); // Verifica se a string contém apenas letras e carcteres exceto numeros
+    }
+
 }

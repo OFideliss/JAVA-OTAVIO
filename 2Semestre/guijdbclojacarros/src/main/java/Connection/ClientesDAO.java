@@ -22,7 +22,7 @@ public class ClientesDAO {
 
     // criar Tabela
     public void criaTabela() {
-        String sql = "CREATE TABLE IF NOT EXISTS clientes_lojacarrosnoite (NOME VARCHAR(255),EMAIL VARCHAR(255), ENDERECO VARCHAR(255),IDADE VARCHAR(255), TELEFONE VARCHAR(255),CPF VARCHAR(255) PRIMARY KEY)";
+        String sql = "CREATE TABLE IF NOT EXISTS clientes_lojacarrosnoite (NOME VARCHAR(255),IDADE VARCHAR(255),CPF VARCHAR(255) PRIMARY KEY)";
         try (Statement stmt = this.connection.createStatement()) {
             stmt.execute(sql);
             System.out.println("Tabela de clientes criada com sucesso.");
@@ -52,11 +52,8 @@ public class ClientesDAO {
 
                 Clientes cliente = new Clientes(
                         rs.getString("nome"),
-                        rs.getString("email"),
-                        rs.getString("endereco"),
-                        rs.getInt("idade"),
-                        rs.getInt("telefone"),
-                        rs.getInt("cpf"));
+                        rs.getString("idade"),
+                        rs.getString("cpf"));
                 clientes.add(cliente); // Adiciona o objeto Cliente à lista de clientes
             }
         } catch (SQLException ex) {
@@ -70,18 +67,15 @@ public class ClientesDAO {
     }
 
     // Cadastrar Carro no banco
-    public void cadastrar(String nome, String email, String endereco, int idade, int telefone, int cpf) {
+    public void cadastrar(String nome, String idade, String cpf) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para cadastrar na tabela
-        String sql = "INSERT INTO clientes_lojacarrosnoite (nome, email, endereco, idade, telefone, cpf)VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO clientes_lojacarrosnoite (nome, idade, cpf)VALUES (?, ?, ?)";
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setString(1, nome);
-            stmt.setString(2, email);
-            stmt.setString(3, endereco);
-            stmt.setInt(4, idade);
-            stmt.setInt(5, telefone);
-            stmt.setInt(6, cpf);
+            stmt.setString(2, idade);
+            stmt.setString(3, cpf);
             stmt.executeUpdate();
             System.out.println("Dados inseridos com sucesso");
         } catch (SQLException e) {
@@ -90,4 +84,42 @@ public class ClientesDAO {
             ConnectionFactory.closeConnection(connection, stmt);
         }
     }
+
+    // Atualizar dados no banco
+    public void atualizar(String nome, String idade, String cpf) {
+        PreparedStatement stmt = null;
+        // Define a instrução SQL parametrizada para atualizar dados pelo cpf
+        String sql = "UPDATE clientes_lojacarrosnoite SET nome = ?, idade = ? WHERE cpf = ?";
+        try {
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nome);
+            stmt.setString(2, idade);
+            // cpf é chave primaria, não pode ser alterada.
+            stmt.setString(3, cpf);
+            stmt.executeUpdate();
+            System.out.println("Dados atualizados com sucesso");
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao atualizar dados no banco de dados.", e);
+        } finally {
+            ConnectionFactory.closeConnection(connection, stmt);
+        }
+    }
+
+    // Apagar dados do banco
+    public void apagar(String placa) {
+        PreparedStatement stmt = null;
+        // Define a instrução SQL parametrizada para apagar dados pelo cpf
+        String sql = "DELETE FROM clientes_lojacarrosnoite WHERE cpf = ?";
+        try {
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, placa);
+            stmt.executeUpdate(); // Executa a instrução SQL
+            System.out.println("Dado apagado com sucesso");
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao apagar dados no banco de dados.", e);
+        } finally {
+            ConnectionFactory.closeConnection(connection, stmt);
+        }
+    }
+
 }

@@ -14,15 +14,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.ClientesControl;
 import Connection.ClientesDAO;
-import Controller.CarrosControl;
 import Model.Clientes;
 
 public class ClientesPainel extends JPanel {
     // Atributos(componentes)
     private JButton cadastrar, apagar, editar;
-    private JTextField clienteNomeField, clienteEmailField, clienteEnderecoField, clienteIdadeField,
-            clienteTelefoneField, clienteCPFField;
+    private JTextField clienteNomeField, clienteIdadeField, clienteCPFField;
     private List<Clientes> clientes;
     private JTable table;
     private DefaultTableModel tableModel;
@@ -38,18 +37,9 @@ public class ClientesPainel extends JPanel {
         inputPanel.add(new JLabel("Nome"));
         clienteNomeField = new JTextField(20);
         inputPanel.add(clienteNomeField);
-        inputPanel.add(new JLabel("Email"));
-        clienteEmailField = new JTextField(20);
-        inputPanel.add(clienteEmailField);
-        inputPanel.add(new JLabel("CEP"));
-        clienteEnderecoField = new JTextField(10);
-        inputPanel.add(clienteEnderecoField);
         inputPanel.add(new JLabel("Idade"));
         clienteIdadeField = new JTextField(3);
         inputPanel.add(clienteIdadeField);
-        inputPanel.add(new JLabel("Telefone"));
-        clienteTelefoneField = new JTextField(15);
-        inputPanel.add(clienteTelefoneField);
         inputPanel.add(new JLabel("CPF"));
         clienteCPFField = new JTextField(20);
         inputPanel.add(clienteCPFField);
@@ -63,12 +53,13 @@ public class ClientesPainel extends JPanel {
         JScrollPane jSPane = new JScrollPane();
         add(jSPane);
         tableModel = new DefaultTableModel(new Object[][] {},
-                new String[] { "Nome", "Email", "CEP", "Idade", "Telefone", "CPF" });
+                new String[] { "Nome", "Idade", "CPF" });
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
         // Cria o banco de dados caso não tenha sido criado
         new ClientesDAO().criaTabela();
+        atualizarTabela();
 
         // Tratamento de eventos -- dentro construtor
         table.addMouseListener(new MouseAdapter() {
@@ -77,14 +68,56 @@ public class ClientesPainel extends JPanel {
                 linhaSelecionada = table.rowAtPoint(evt.getPoint());
                 if (linhaSelecionada != -1) {
                     clienteNomeField.setText((String) table.getValueAt(linhaSelecionada, 0));
-                    clienteEmailField.setText((String) table.getValueAt(linhaSelecionada, 1));
-                    clienteEnderecoField.setText((String) table.getValueAt(linhaSelecionada, 2));
-                    clienteIdadeField.setText((String) table.getValueAt(linhaSelecionada, 3));
-                    clienteTelefoneField.setText((String) table.getValueAt(linhaSelecionada, 4));
-                    clienteCPFField.setText((String) table.getValueAt(linhaSelecionada, 5));
+                    clienteIdadeField.setText((String) table.getValueAt(linhaSelecionada, 1));
+                    clienteCPFField.setText((String) table.getValueAt(linhaSelecionada, 2));
                 }
             }
         });
 
+        ClientesControl operacoes = new ClientesControl(clientes, tableModel, table);
+        // Configura a ação do botão "cadastrar" para adicionar um novo registro no
+        // banco de dados
+
+        // Tratamento do botão cadastrar
+        cadastrar.addActionListener(e -> {
+            operacoes.cadastrar(clienteNomeField.getText(),
+                    clienteIdadeField.getText(), clienteCPFField.getText());
+            clienteNomeField.setText("");
+            clienteIdadeField.setText("");
+            clienteCPFField.setText("");
+        });
+
+        // Tratamento do botão editar
+        editar.addActionListener(e -> {
+            operacoes.atualizar(clienteNomeField.getText(),
+                    clienteIdadeField.getText(), clienteCPFField.getText());
+             clienteNomeField.setText("");
+            clienteIdadeField.setText("");
+            clienteCPFField.setText("");
+        });
+
+        // Configura a ação do botão "apagar" para excluir um registro no banco de dados
+        apagar.addActionListener(e -> {
+            operacoes.apagar( clienteCPFField.getText());
+            // Limpa os campos de entrada após a operação de exclusão
+            clienteNomeField.setText("");
+            clienteIdadeField.setText("");
+            clienteCPFField.setText("");
+        });
+
+    }
+
+    // Métodos (Atualizar tabela)
+    // Método para atualizar a tabela de exibição com dados do banco de dados
+    private void atualizarTabela() {
+        tableModel.setRowCount(0); // Limpa todas as linhas existentes na tabela
+        clientes = new ClientesDAO().listarTodos();
+        // Obtém os clientes atualizados do banco de dados
+        for (Clientes cliente : clientes) {
+            // Adiciona os dados de cada cliente como uma nova linha na tabela Swing
+            tableModel.addRow(new Object[] { cliente.getNome(), cliente.getIdade(),
+
+                    cliente.getCpf() });
+        }
     }
 }
