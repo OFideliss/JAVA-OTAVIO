@@ -1,0 +1,12 @@
+ create table pedidos(
+     id int(10) not null primary key,
+     data varchar(50),
+     valor double(50),
+     endereco varchar(150),
+     numPedido int(10),
+     descricao varchar(250),
+     img varchar(200),
+     qtd int(10));
+
+insert into produto(id, nome, tipo, marca, descricao, valor,  qtd)
+    -> value(1, 'joao', 'cavalo', 'cow', 'racao para cavalo', 500, 3);
