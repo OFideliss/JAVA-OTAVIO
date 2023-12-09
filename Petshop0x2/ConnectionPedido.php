@@ -19,15 +19,14 @@ while ($row = mysqli_fetch_assoc($result)) {
         $pedidos[$numPedido] = array(
             'info' => $row,
             'itens' => array(),
-            'total' => 0 // Adicionando o campo total para cada pedido
+            'total' => 0 
         );
     }
 
     $pedidos[$numPedido]['itens'][] = $row;
-    $pedidos[$numPedido]['total'] += $row['valor']; // Somando o valor ao total do pedido
+    $pedidos[$numPedido]['total'] += $row['valor'];
 }
 
 mysqli_close($conn);
 
 ?>
-<
