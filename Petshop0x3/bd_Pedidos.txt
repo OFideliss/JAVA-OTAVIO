@@ -1,0 +1,14 @@
+ create table pedidos(
+     id int(10) not null,
+     data varchar(50),
+     valor decimal(50,2),
+     endereco varchar(150),
+     numPedido int(10),
+     descricao varchar(250),
+     img varchar(200),
+     qtd int(10));
+
+insert into produto(id, nome, tipo, marca, descricao, valor,  qtd)
+    -> value(1, 'joao', 'cavalo', 'cow', 'racao para cavalo', 500, 3);
+
+INSERT INTO `pedidos` (`id`, `data`, `valor`, `endereco`, `numPedido`, `descricao`, `img`, `qtd`) VALUES ('1', '09/12/2023', '46.89', 'Rua Geraldo Luis, 78, JD Boa morte', '3', 'Ração para cachorro tamanho familia', 'Imagem2.png', '3');
